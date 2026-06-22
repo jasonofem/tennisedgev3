@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+body {
+  font-family: var(--font-inter);
+}
+
+.font-mono {
+  font-family: var(--font-jetbrains);
+}
+
+/* === HACKER / CYBER AESTHETIC === */
+.cyber-text {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.scanline {
+  position: relative;
+}
+
+.scanline::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 240, 255, 0.03) 50%
+  );
+  background-size: 100% 6px;
+  pointer-events: none;
+  z-index: 1;
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100px; }
+}
+
+.pick-card {
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.pick-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(to right, transparent, #67f6ff, transparent);
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+
+.pick-card:hover {
+  transform: translateY(-1px);
+  border-color: #67f6ff;
+  box-shadow: 0 0 0 1px rgba(0, 240, 255, 0.1);
+}
+
+.pick-card:hover::before {
+  opacity: 0.8;
+}
+
+.stat-box {
+  background: rgba(255,255,255,0.015);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.2s;
+}
+
+.stat-box:hover {
+  border-color: rgba(0, 240, 255, 0.2);
+  background: rgba(255,255,255,0.025);
+}
+
+.terminal {
+  font-family: var(--font-jetbrains);
+  background: #0a0a0a;
+  border: 1px solid rgba(103, 246, 255, 0.15);
+}
+
+.journal-entry {
+  transition: all 0.2s;
+}
+
+.journal-entry:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.value-badge {
+  font-feature-settings: "tnum";
+  letter-spacing: -0.5px;
+}
+
+.data-grid {
+  background-image: 
+    linear-gradient(rgba(103, 246, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 246, 255, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
